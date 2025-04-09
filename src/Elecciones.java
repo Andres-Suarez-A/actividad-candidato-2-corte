@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Elecciones {
-    private List<Candidato> candidatos; // Cambiado a Candidato
+    private List<Candidato> candidatos; 
     private int votosTotales;
 
     public Elecciones() {
