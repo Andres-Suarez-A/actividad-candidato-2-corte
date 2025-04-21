@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Elecciones {
-    private List<Candidato> candidatos; // Cambiado a Candidato
+    private List<Candidato> candidatos;
     private int votosTotales;
 
     public Elecciones() {
@@ -10,20 +10,20 @@ public class Elecciones {
         votosTotales = 0;
     }
 
-    public void setCandidatos(List<Candidato> candidatos) {
-        this.candidatos = candidatos;
+    public void agregarCandidato(Candidato candidato) {
+        candidatos.add(candidato);
     }
 
-    public void setVotosTotales(int votosTotales) {
-        this.votosTotales = votosTotales;
+    public int getVotosTotales() {
+        return votosTotales;
     }
 
-    public void votarPorCandidatos(int i) {
+    public void votarPorCandidatos(int i, String tipoVoto) {
         if (i >= 0 && i < candidatos.size()) {
-            candidatos.get(i).incrementarVoto();
+            candidatos.get(i).registrarVoto(tipoVoto);
             votosTotales++;
         } else {
-            System.out.println("Íncorrecto");
+            System.out.println("Índice incorrecto");
         }
     }
 
@@ -45,9 +45,9 @@ public class Elecciones {
     public void calcularCostoTotalCampaña() {
         double costoTotalCampaña = 0;
         for (Candidato candidato : candidatos) {
-            costoTotalCampaña += candidato.calcularCostoTotalCampaña();
+            costoTotalCampaña += candidato.getCostoCampaña();
         }
-        double costoPromedio = costoTotalCampaña / votosTotales;
+        double costoPromedio = costoTotalCampaña / (votosTotales > 0 ? votosTotales : 1);
         System.out.println("Costo total promedio por voto: " + costoPromedio);
     }
 }

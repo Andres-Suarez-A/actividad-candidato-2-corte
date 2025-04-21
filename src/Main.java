@@ -5,20 +5,22 @@ public class Main {
         Candidato candidato2 = new Candidato("Andres Suarez");
         Candidato candidato3 = new Candidato("Juan Lopez");
 
-        elecciones.agregarCandidato(Candidato1);
-        elecciones.agregarCandidato(Candidato2);
-        elecciones.agregarCandidato(Candidato3);
+        elecciones.agregarCandidato(candidato1);
+        elecciones.agregarCandidato(candidato2);
+        elecciones.agregarCandidato(candidato3);
 
-        elecciones.votarPorCandidatos(0,"internet");
-        elecciones.votarPorCandidatos(1,"radio");
-        elecciones.votarPorCandidatos(2,"television");
+        elecciones.votarPorCandidatos(0, "internet");
+        elecciones.votarPorCandidatos(1, "radio");
+        elecciones.votarPorCandidatos(2, "television");
 
-        System.out.println("porcentajes de votos por candidato:");
+        System.out.println("Porcentajes de votos por candidato:");
         elecciones.calcularPorcentajeVotos();
-        System.out.println("costo promedio de campaña");
+
+        System.out.println("Costo promedio de campaña:");
         elecciones.calcularCostoTotalCampaña();
-        System.out.println("vacias urnas:");
+
+        System.out.println("Vaciando urnas:");
         elecciones.vaciarUrnas();
-        System.out.println("nuveo total de votos tras vaciar las urnas:"+elecciones.VotosTotales);
+        System.out.println("Nuevo total de votos tras vaciar las urnas: " + elecciones.getVotosTotales());
     }
 }

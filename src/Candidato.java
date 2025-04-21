@@ -1,53 +1,52 @@
 public class Candidato {
-
-    private String Nombre;
+    private String nombre;
     private int votosRadio;
-    private int votosTelevisores;
+    private int votosTelevision;
     private int votosInternet;
     private double costoCampaña;
 
-    public void candidato(String Nombre){
-        this.Nombre = Nombre;
+    public Candidato(String nombre) {
+        this.nombre = nombre;
         this.votosRadio = 0;
-        this.votosTelevisores = 0;
+        this.votosTelevision = 0;
         this.votosInternet = 0;
         this.costoCampaña = 0;
     }
-    public void registrarVotos(){
-        String Votos = null;
-        switch (Votos){
+
+    public void registrarVoto(String tipoVoto) {
+        switch (tipoVoto.toLowerCase()) {
             case "internet":
                 votosInternet++;
                 costoCampaña += 700000;
                 break;
-            case "Radio":
+            case "radio":
                 votosRadio++;
                 costoCampaña += 200000;
                 break;
-            case "Televisores":
-                votosTelevisores++;
+            case "television":
+                votosTelevision++;
                 costoCampaña += 600000;
                 break;
             default:
-                System.out.println("incorrecto");
+                System.out.println("Tipo de voto incorrecto");
         }
     }
-    public double CostoCampaña(){
+
+    public double getCostoCampaña() {
         return costoCampaña;
     }
+
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public int getVotosRadio() {
-        return votosRadio;
+    public int getTotalVotos() {
+        return votosRadio + votosTelevision + votosInternet;
     }
 
-    public int getVotosTelevisores() {
-        return votosTelevisores;
-    }
-
-    public int getVotosInternet() {
-        return votosInternet;
+    public void reiniciarVotos() {
+        votosRadio = 0;
+        votosTelevision = 0;
+        votosInternet = 0;
     }
 }
